@@ -7,6 +7,7 @@ import Status from "./components/Status";
 import AdvancedProps from "./pages/AdvancedProps";
 import EventProps from "./pages/EventProps";
 import States from "./pages/States";
+import Reducer from "./pages/Reducer";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           <li style={{ padding: "10px" }}>
             <Link to="/states">States</Link>
           </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/reducer">Reducer</Link>
+          </li>
         </nav>
         <Routes>
           <Route
@@ -34,6 +38,7 @@ function App() {
           <Route path="/advanced-props" element={<AdvancedProps />} />
           <Route path="/event-props" element={<EventProps />} />
           <Route path="/states" element={<States />} />
+          <Route path="/reducer" element={<Reducer />} />
         </Routes>
       </BrowserRouter>
     </div>
