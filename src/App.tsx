@@ -10,6 +10,8 @@ import States from "./pages/States";
 import Reducer from "./pages/Reducer";
 import Context from "./pages/Context";
 import { ThemeContextProvider } from "./components/ThemeContext";
+import Gopi from "./pages/Gopi";
+import { GopiContextProvider } from "./components/ContextGopi";
 
 function App() {
   return (
@@ -34,6 +36,9 @@ function App() {
           <li style={{ padding: "10px" }}>
             <Link to="/context">Context</Link>
           </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/gopi">Gopi Context</Link>
+          </li>
         </nav>
         <Routes>
           <Route
@@ -53,6 +58,8 @@ function App() {
               </ThemeContextProvider>
             }
           />
+
+            <Route path="/gopi" element={<GopiContextProvider><Gopi /></GopiContextProvider>} />
         </Routes>
       </BrowserRouter>
     </div>
