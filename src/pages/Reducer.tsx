@@ -1,36 +1,44 @@
 import React, { useReducer } from "react";
+import { buttonStyle } from "../components/Login";
 // Define the type for state
 type State = {
   count: number;
 };
 
 // Define the type for action
-type Action = {
-  type: "INCREMENT" | "DECREMENT" | "RESET";
+type UpdateAction = {
+  type: "INCREMENT" | "DECREMENT";
+  payload: number;
 };
 
-// Reducer function
-const reducer = (state: State, action: Action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return { count: state.count + 1 };
-    case "DECREMENT":
-      return { count: state.count - 1 };
-    case "RESET":
-      return { count: 0 };
-    default:
-      return state;
-  }
+type ResetAction = {
+  type: "RESET";
 };
+
+type CounterAction = UpdateAction | ResetAction;
 
 const Reducer = () => {
+  // Reducer function
+  const reducer = (state: State, action: CounterAction) => {
+    switch (action.type) {
+      case "INCREMENT":
+        return { count: state.count + action.payload };
+      case "DECREMENT":
+        return { count: state.count - action.payload };
+      case "RESET":
+        return initialState;
+      default:
+        return state;
+    }
+  };
   const initialState: State = { count: 0 };
   const [state, dispatch] = useReducer(reducer, initialState);
+
   const increment = () => {
-    dispatch({ type: "INCREMENT" });
+    dispatch({ type: "INCREMENT", payload: 5 });
   };
   const decrement = () => {
-    dispatch({ type: "DECREMENT" });
+    dispatch({ type: "DECREMENT", payload: 5 });
   };
   const reset = () => {
     dispatch({ type: "RESET" });
@@ -38,10 +46,16 @@ const Reducer = () => {
   return (
     <div>
       <h1>useReducer </h1>
-      <h1>Count: {state.count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
+      <h3>Count: {state.count}</h3>
+      <button style={buttonStyle} onClick={increment}>
+        Increment + 5
+      </button>
+      <button style={buttonStyle} onClick={decrement}>
+        Decrement -5
+      </button>
+      <button style={buttonStyle} onClick={reset}>
+        Reset
+      </button>
     </div>
   );
 };

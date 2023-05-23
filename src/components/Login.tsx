@@ -4,6 +4,12 @@ type AuthUser = {
   name: string;
   email: string;
 };
+export const buttonStyle = {
+  padding: "20px",
+  borderRadius: "10px",
+  margin: "0px 20px",
+  cursor: "pointer",
+};
 
 const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,13 +17,6 @@ const Login = () => {
 
   // type assertion
   // const [user, setUser] = useState<AuthUser | null>({} as AuthUser);
-
-  const buttonStyle = {
-    padding: "20px",
-    borderRadius: "10px",
-    margin: "0px 20px",
-    cursor: "pointer",
-  };
 
   const handleLogin = () => {
     setIsLoggedIn(true);

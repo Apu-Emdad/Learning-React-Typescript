@@ -8,6 +8,8 @@ import AdvancedProps from "./pages/AdvancedProps";
 import EventProps from "./pages/EventProps";
 import States from "./pages/States";
 import Reducer from "./pages/Reducer";
+import Context from "./pages/Context";
+import { ThemeContextProvider } from "./components/ThemeContext";
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
           <li style={{ padding: "10px" }}>
             <Link to="/reducer">Reducer</Link>
           </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/context">Context</Link>
+          </li>
         </nav>
         <Routes>
           <Route
@@ -39,6 +44,15 @@ function App() {
           <Route path="/event-props" element={<EventProps />} />
           <Route path="/states" element={<States />} />
           <Route path="/reducer" element={<Reducer />} />
+
+          <Route
+            path="/context"
+            element={
+              <ThemeContextProvider>
+                <Context />
+              </ThemeContextProvider>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
