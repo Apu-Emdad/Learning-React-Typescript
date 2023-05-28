@@ -14,6 +14,8 @@ import Gopi from "./pages/Gopi";
 import { GopiContextProvider } from "./components/ContextGopi";
 import User from "./pages/User";
 import { UserContextProvider } from "./components/UserContext/UserContext";
+import GenericProps from "./components/Generic/GenericProps";
+import RestrictingProps from "./components/RestrictingProps/RestrictingProps";
 
 function App() {
   return (
@@ -43,6 +45,12 @@ function App() {
           </li>
           <li style={{ padding: "10px" }}>
             <Link to="/users">User Context</Link>
+          </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/generic">Generic</Link>
+          </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/restrict">Restricting Props</Link>
           </li>
         </nav>
         <Routes>
@@ -78,6 +86,8 @@ function App() {
               </UserContextProvider>
             }
           />
+          <Route path="/generic" element={<GenericProps />} />
+          <Route path="/restrict" element={<RestrictingProps />} />
         </Routes>
       </BrowserRouter>
     </div>
