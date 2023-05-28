@@ -12,6 +12,8 @@ import Context from "./pages/Context";
 import { ThemeContextProvider } from "./components/ThemeContext";
 import Gopi from "./pages/Gopi";
 import { GopiContextProvider } from "./components/ContextGopi";
+import User from "./pages/User";
+import { UserContextProvider } from "./components/UserContext/UserContext";
 
 function App() {
   return (
@@ -39,6 +41,9 @@ function App() {
           <li style={{ padding: "10px" }}>
             <Link to="/gopi">Gopi Context</Link>
           </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/users">User Context</Link>
+          </li>
         </nav>
         <Routes>
           <Route
@@ -49,7 +54,6 @@ function App() {
           <Route path="/event-props" element={<EventProps />} />
           <Route path="/states" element={<States />} />
           <Route path="/reducer" element={<Reducer />} />
-
           <Route
             path="/context"
             element={
@@ -58,8 +62,22 @@ function App() {
               </ThemeContextProvider>
             }
           />
-
-            <Route path="/gopi" element={<GopiContextProvider><Gopi /></GopiContextProvider>} />
+          <Route
+            path="/gopi"
+            element={
+              <GopiContextProvider>
+                <Gopi />
+              </GopiContextProvider>
+            }
+          />
+          <Route
+            path="/users"
+            element={
+              <UserContextProvider>
+                <User />
+              </UserContextProvider>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

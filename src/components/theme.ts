@@ -1,5 +1,5 @@
 export type Theme = {
-  theme?: {
+  theme: {
     primary: {
       main: string,
       text: string,
@@ -13,8 +13,8 @@ export type Theme = {
       text: string,
     },
   },
-  setMode?: any,
-  mode?: string,
+  setMode: React.Dispatch<React.SetStateAction<"dark" | "light">>,
+  mode: "dark" | "light",
 };
 
 export const theme = (mode = "light") => {

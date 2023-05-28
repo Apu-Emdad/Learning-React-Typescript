@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../components/ThemeContext";
-import { Theme } from "../components/theme";
 
 const Context = () => {
   const useTheme = useContext(ThemeContext);
   console.log(useTheme);
-  const { theme, mode, setMode } = useTheme as Theme;
+  const { theme, mode, setMode } = useTheme;
 
   return (
     <div style={{ background: theme?.background?.main }}>
