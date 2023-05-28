@@ -32,6 +32,7 @@ export const ThemeContextProvider = ({
 }: ThemeContextProviderProps) => {
   const [mode, setMode] = useState<"dark" | "light">("light");
   const useTheme = theme(mode);
+
   return (
     <ThemeContext.Provider
       value={{ theme: useTheme, setMode: setMode, mode: mode }}
