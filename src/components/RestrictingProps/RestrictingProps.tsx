@@ -6,6 +6,7 @@ const RestrictingProps = () => {
     <div>
       <h1>Restricting Props</h1>
       <RandomNumber value={10} isPositive />
+
       {/* invalid  isZero and isNegative are restricted*/}
       {/* <RandomNumber value={10} isPositive isZero /> */}
     </div>
