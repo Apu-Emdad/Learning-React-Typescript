@@ -16,6 +16,8 @@ import User from "./pages/User";
 import { UserContextProvider } from "./components/UserContext/UserContext";
 import GenericProps from "./components/Generic/GenericProps";
 import RestrictingProps from "./components/RestrictingProps/RestrictingProps";
+import ComponentProp from "./components/HTML/ComponentProp";
+import Polymorphic from "./components/polymorphic/Polymorphic";
 
 function App() {
   return (
@@ -51,6 +53,12 @@ function App() {
           </li>
           <li style={{ padding: "10px" }}>
             <Link to="/restrict">Restricting Props</Link>
+          </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/component-prop">React.ComponentProp</Link>
+          </li>
+          <li style={{ padding: "10px" }}>
+            <Link to="/polymorphic">Polymorphic</Link>
           </li>
         </nav>
         <Routes>
@@ -88,6 +96,8 @@ function App() {
           />
           <Route path="/generic" element={<GenericProps />} />
           <Route path="/restrict" element={<RestrictingProps />} />
+          <Route path="/component-prop" element={<ComponentProp />} />
+          <Route path="/polymorphic" element={<Polymorphic />} />
         </Routes>
       </BrowserRouter>
     </div>
